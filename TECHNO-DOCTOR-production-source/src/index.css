@@ -1,0 +1,330 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @keyframes mandalaSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    background-color: #040d24;
+  }
+
+  body {
+    font-family: Calibri, Carlito, 'Segoe UI', system-ui, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #040d24;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: Calibri, Carlito, 'Segoe UI', sans-serif;
+    font-weight: 700;
+  }
+
+  /* Сине-голубые полупрозрачные плашки с градиентом (вместо белых) */
+  .glass-card {
+    background-image: linear-gradient(
+      135deg,
+      rgba(47, 123, 255, 0.38) 0%,
+      rgba(34, 211, 238, 0.2) 100%
+    );
+    background-color: rgba(10, 31, 77, 0.5);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 14px 36px -12px rgba(2, 6, 15, 0.6), 0 0 24px -6px rgba(56, 189, 248, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  .glass-card-hover {
+    background-image: linear-gradient(
+      135deg,
+      rgba(47, 123, 255, 0.28) 0%,
+      rgba(34, 211, 238, 0.12) 100%
+    );
+    background-color: rgba(10, 31, 77, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 10px 26px -12px rgba(2, 6, 15, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  }
+  .glass-card-hover:hover {
+    background-color: rgba(13, 42, 102, 0.55);
+    border-color: rgba(34, 211, 238, 0.45);
+  }
+
+  .glass-input {
+    background-color: rgba(4, 13, 36, 0.5);
+    background-image: linear-gradient(
+      135deg,
+      rgba(47, 123, 255, 0.18) 0%,
+      rgba(34, 211, 238, 0.08) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .glass-input::placeholder {
+    color: rgba(255, 255, 255, 0.45);
+  }
+  .glass-input:focus {
+    border-color: rgba(34, 211, 238, 0.7);
+    box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.18);
+  }
+
+  .glass-chip {
+    background-image: linear-gradient(
+      135deg,
+      rgba(47, 123, 255, 0.3) 0%,
+      rgba(34, 211, 238, 0.14) 100%
+    );
+    background-color: rgba(10, 31, 77, 0.45);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  }
+  .glass-chip:hover {
+    background-color: rgba(13, 42, 102, 0.6);
+    border-color: rgba(34, 211, 238, 0.5);
+  }
+  .glass-chip:active {
+    transform: scale(0.95);
+  }
+
+  .glass-icon {
+    background-image: linear-gradient(
+      135deg,
+      rgba(47, 123, 255, 0.45) 0%,
+      rgba(34, 211, 238, 0.25) 100%
+    );
+    background-color: rgba(10, 31, 77, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+  }  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.35);
+    border-radius: 3px;
+  }
+
+  /* Медленное вращение логотипа */
+  .logo-spin {
+    animation: mandalaSpin 22s linear infinite;
+  }
+
+  /* Вращающееся неоновое кольцо на фоне логотипа */
+  .logo-ring {
+    animation: mandalaSpin 9s linear infinite;
+    transform-origin: 50% 50%;
+  }
+
+  /* ─── Летающие космические эффекты (все экраны) ─── */
+
+  /* Траектории тарелок: главная — слева направо, вторая — обратно */
+  .ufo-path {
+    animation: ufoFly 36s linear infinite;
+    will-change: transform;
+  }
+  .ufo-path-back {
+    animation: ufoFlyBack 44s linear infinite;
+    animation-delay: -12s;
+    will-change: transform;
+    opacity: 0.55;
+  }
+  .ufo-path-back > div {
+    transform: scale(0.55);
+    transform-origin: top left;
+  }
+  @keyframes ufoFly {
+    0% { transform: translate3d(-160px, 12vh, 0) rotate(4deg); }
+    25% { transform: translate3d(28vw, 26vh, 0) rotate(2deg); }
+    50% { transform: translate3d(58vw, 7vh, 0) rotate(-3deg); }
+    75% { transform: translate3d(84vw, 20vh, 0) rotate(1deg); }
+    100% { transform: translate3d(110vw, 10vh, 0) rotate(4deg); }
+  }
+  @keyframes ufoFlyBack {
+    0% { transform: translate3d(110vw, 34vh, 0) rotate(2deg); }
+    30% { transform: translate3d(70vw, 48vh, 0) rotate(-4deg); }
+    60% { transform: translate3d(32vw, 36vh, 0) rotate(3deg); }
+    100% { transform: translate3d(-180px, 42vh, 0) rotate(0deg); }
+  }
+
+  /* Покачивание тарелки (лёгкий дрейф по вертикали) */
+  .ufo-wobble {
+    animation: ufoWobble 5.5s ease-in-out infinite;
+    will-change: transform;
+  }
+  @keyframes ufoWobble {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    30% { transform: translateY(-10px) rotate(2deg); }
+    70% { transform: translateY(8px) rotate(-2deg); }
+  }
+
+  /* Неоновая подсветка корпуса */
+  .ufo-glow {
+    filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.65)) drop-shadow(0 4px 14px rgba(14, 165, 233, 0.35));
+  }
+
+  /* Луч «абдукции»: мерцание прозрачности */
+  .ufo-beam {
+    animation: ufoBeam 2.2s ease-in-out infinite;
+    transform-origin: 60px 42px;
+  }
+  @keyframes ufoBeam {
+    0%, 100% { opacity: 0.35; transform: scaleY(1); }
+    50% { opacity: 0.8; transform: scaleY(1.06); }
+  }
+
+  /* Бегающие огни по ободу */
+  .ufo-light {
+    animation: ufoLightRun 1.4s linear infinite;
+    filter: drop-shadow(0 0 3px rgba(34, 211, 238, 0.9));
+  }
+  @keyframes ufoLightRun {
+    0%, 100% { fill-opacity: 0.35; }
+    12% { fill-opacity: 1; }
+    24% { fill-opacity: 0.35; }
+  }
+
+  /* Кометы: два неналегающих расписания */
+  .comet {
+    width: 110px;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(186, 230, 253, 0.9) 0%, rgba(125, 211, 252, 0) 90%);
+    filter: drop-shadow(0 0 6px rgba(125, 211, 252, 0.8));
+    animation: cometFly 17s linear infinite;
+    will-change: transform, opacity;
+    opacity: 0;
+  }
+  .comet-a { animation-delay: 3s; }
+  .comet-b {
+    animation-duration: 23s;
+    animation-delay: 11s;
+    width: 140px;
+  }
+  @keyframes cometFly {
+    0% { transform: translate3d(110vw, 16vh, 0) rotate(24deg); opacity: 0; }
+    3% { opacity: 0.9; }
+    48% { opacity: 0.9; }
+    55%, 100% { transform: translate3d(-20vw, 70vh, 0) rotate(24deg); opacity: 0; }
+  }
+
+  /* Звёзды: медленный дрейф вверх + мерцание */
+  .star-drift {
+    animation: starDrift 60s linear infinite;
+    will-change: transform;
+  }
+  @keyframes starDrift {
+    0% { transform: translate3d(0, 6vh, 0); }
+    100% { transform: translate3d(-4vw, -110vh, 0); }
+  }
+  .star-twinkle {
+    animation: starTwinkle 2.8s ease-in-out infinite;
+  }
+  @keyframes starTwinkle {
+    0%, 100% { opacity: 0.25; transform: scale(0.85); }
+    50% { opacity: 1; transform: scale(1.15); }
+  }
+
+  /* Мягкие дрейфующие туманности */
+  .orb-float {
+    animation: orbFloat 30s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+  @keyframes orbFloat {
+    0% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(4vw, -5vh, 0) scale(1.12); }
+    100% { }  /* alternate реверсит сам */
+  }
+
+  /* ─── Тосты-уведомления ─── */
+  @keyframes toastIn {
+    from { opacity: 0; transform: translateY(-8px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes toastOut {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to { opacity: 0; transform: translateY(-6px) scale(0.98); }
+  }
+  .animate-toast-in {
+    animation: toastIn 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .animate-toast-out {
+    animation: toastOut 0.2s ease-in forwards;
+  }
+
+  /* Единая видимая рамка фокуса для клавиатуры */
+  :focus-visible {
+    outline: 2px solid rgba(34, 211, 238, 0.9);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ufo-path, .ufo-path-back, .ufo-wobble, .comet, .star-drift, .star-twinkle, .orb-float, .ufo-beam, .ufo-light {
+      animation-duration: 12s;
+    }
+    .comet, .ufo-beam {
+      opacity: 0.5;
+    }
+    .animate-toast-in, .animate-toast-out {
+      animation-duration: 0.01ms;
+    }
+  }
+}
+
+/* TECHNO DOCTOR 2026 — industrial neon visual system */
+@layer components {
+  .tech-frame {
+    position: relative;
+    background: linear-gradient(145deg, rgba(4,16,42,.92), rgba(3,10,27,.78));
+    border: 1px solid rgba(70,190,255,.55);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.035), 0 0 28px rgba(0,132,255,.18), 0 18px 50px rgba(0,0,0,.32);
+    clip-path: polygon(0 0, 94% 0, 100% 18%, 100% 100%, 6% 100%, 0 82%);
+  }
+  .tech-frame::before {
+    content: '';
+    position: absolute;
+    left: 8%; right: 16%; top: -1px; height: 2px;
+    background: linear-gradient(90deg, transparent, #25baff, #fff, #25baff, transparent);
+    box-shadow: 0 0 12px #159dff;
+  }
+  .brand-lockup { display:flex; align-items:center; justify-content:center; gap:.65rem; color:white; }
+  .brand-mark { width:66px; height:54px; color:#fff; filter:drop-shadow(0 0 7px rgba(40,175,255,.8)); flex:none; }
+  .brand-mark svg { width:100%; height:100%; }
+  .brand-title { font-family:Calibri,Carlito,'Segoe UI',sans-serif; font-size:clamp(1.55rem,7vw,2.2rem); font-weight:900; line-height:.95; letter-spacing:-.045em; white-space:nowrap; text-shadow:0 0 18px rgba(48,164,255,.45); }
+  .brand-subtitle { margin-top:.42rem; display:inline-block; padding:.18rem .55rem; border-left:2px solid #25baff; border-right:2px solid #25baff; background:linear-gradient(90deg,rgba(18,111,238,.25),rgba(25,177,255,.55),rgba(18,111,238,.25)); font-size:.65rem; font-weight:800; letter-spacing:.22em; white-space:nowrap; box-shadow:0 0 14px rgba(37,186,255,.18); }
+  .glass-card-hover { border-radius:10px !important; background:linear-gradient(145deg,rgba(8,27,61,.9),rgba(5,15,36,.78)) !important; border:1px solid rgba(49,171,255,.42) !important; box-shadow:inset 0 0 18px rgba(24,117,238,.07),0 9px 28px rgba(0,0,0,.3),0 0 14px rgba(0,135,255,.08) !important; }
+  .glass-card-hover:hover { border-color:rgba(76,205,255,.9)!important; box-shadow:inset 0 0 24px rgba(24,117,238,.14),0 0 22px rgba(0,151,255,.22)!important; transform:translateY(-1px); }
+  .glass-icon { border-radius:50%!important; background:radial-gradient(circle at 40% 30%,rgba(45,194,255,.28),rgba(4,22,56,.9) 65%)!important; border:1px solid rgba(67,203,255,.65)!important; box-shadow:inset 0 0 12px rgba(35,173,255,.15),0 0 13px rgba(0,152,255,.18); }
+}
+
+body::before {
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image:linear-gradient(rgba(42,157,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(42,157,255,.025) 1px,transparent 1px);
+  background-size:32px 32px;
+  mask-image:linear-gradient(to bottom,black,transparent 85%);
+}

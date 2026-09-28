@@ -1,0 +1,65 @@
+{
+  "name": "TaskFlow - Productivity Manager",
+  "short_name": "TaskFlow",
+  "description": "Organize tasks, track projects, and get more done every day — fast, offline-ready task management.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "theme_color": "#1E40AF",
+  "background_color": "#1E3A5F",
+  "lang": "en-US",
+  "dir": "ltr",
+  "categories": ["productivity", "utilities"],
+  "icons": [
+    { "src": "/icons/icon-72x72.png", "sizes": "72x72", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-96x96.png", "sizes": "96x96", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-128x128.png", "sizes": "128x128", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-144x144.png", "sizes": "144x144", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-152x152.png", "sizes": "152x152", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-384x384.png", "sizes": "384x384", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-maskable-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/icons/icon-maskable-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/desktop-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "TaskFlow desktop dashboard with task lists and project views"
+    },
+    {
+      "src": "/screenshots/mobile-narrow.png",
+      "sizes": "720x1280",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "TaskFlow mobile view with today's tasks and quick add"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Add Task",
+      "short_name": "Add Task",
+      "description": "Create a new task right away",
+      "url": "/?action=add-task",
+      "icons": [{ "src": "/icons/shortcut-add-task.png", "sizes": "96x96", "type": "image/png" }]
+    },
+    {
+      "name": "Today's Tasks",
+      "short_name": "Today",
+      "description": "See what's planned for today",
+      "url": "/?view=today",
+      "icons": [{ "src": "/icons/shortcut-today.png", "sizes": "96x96", "type": "image/png" }]
+    },
+    {
+      "name": "View Projects",
+      "short_name": "Projects",
+      "description": "Browse all your projects",
+      "url": "/?view=projects",
+      "icons": [{ "src": "/icons/shortcut-projects.png", "sizes": "96x96", "type": "image/png" }]
+    }
+  ]
+}

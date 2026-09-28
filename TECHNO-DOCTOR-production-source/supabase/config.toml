@@ -1,0 +1,7 @@
+project_id = "technodoctor"
+
+[functions.ai]
+verify_jwt = false
+
+[functions.auth]
+verify_jwt = false
